@@ -41,7 +41,7 @@ export async function signup(data) {
   return { success: true, user: authData?.user }; // Trả về thành công
 }
 
-export async function handleSignupAction({ data }: any) {
+export async function handleSignupAction(data: any) {
   const supabase = await createClient();
   const { email, password } = data;
 
