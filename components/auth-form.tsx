@@ -14,7 +14,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 import { createClient } from '@/lib/supabase/server';
-import { handleSignupAction, login } from './actions';
+import { handleSignupAction, login, signup } from './actions';
 
 export default function AuthForm() {
   const [email, setEmail] = useState('');
@@ -61,7 +61,7 @@ export default function AuthForm() {
     setLoading(true);
     setError(null);
 
-    const result = await handleSignupAction({ email, password });
+    const result = await signup({ email, password });
 
     if (result.error) {
       setError(result.error);
